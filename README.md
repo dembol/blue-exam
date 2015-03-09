@@ -44,4 +44,10 @@ Started SelectChannelConnector@0.0.0.0:8000
 
 * change request content (only for CREATED and VERIFIED states)
   ```
+  curl -X PUT "http://127.0.0.1:8000/blue/request/ID/content" -H"title: other title" -H"description: other description"
   ```
+
+* find requests
+  ```
+  ```
+
