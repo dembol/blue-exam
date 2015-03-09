@@ -1,8 +1,8 @@
 # blue-exam
 
-## The project provides
+## This project provides
 * REST interface
-* Domain model based on Domain-Driven Design 
+* Simple Domain model based on Domain-Driven Design 
 * JPA repositories persisting aggregate roots
 
 ## Requisites
@@ -12,8 +12,8 @@
 ## Usage
 #### Run spring-boot
 ```
-cd blue/core
-mvn clean spring-boot:run
+$ cd blue/core
+$ mvn clean spring-boot:run
 ```
 
 #### Wait for fully prepared Spring context
