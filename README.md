@@ -23,12 +23,12 @@ Started SelectChannelConnector@0.0.0.0:8000
 ```
 * Next you can execute interface's methods
   
-### add request (returns new request ID)
+#### add request (returns new request ID)
   ```
   $ curl -X POST "http://127.0.0.1:8000/blue/request" -H"title: some title" -H"description: some description"
   ```
  
-### get request
+#### get request
   ```
   $ curl -X GET "http://127.0.0.1:8000/blue/request/ID"
   {"id":13,"title":"some title","description":"some description","reason":null,"state":"CREATED","stateHistory":[]}
