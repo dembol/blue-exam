@@ -5,6 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 
+/**
+ * Maps {@link java.lang.IllegalArgumentException} into 400 Bad Request Response.
+ */
 @Slf4j
 public class IllegalArgumentExceptionMapper implements ExceptionMapper<IllegalArgumentException> {
 

@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 /**
- * Represents single change of {@link org.dembol.blue.domain.Request}.
+ * Represents single change of {@link org.dembol.blue.domain.Request}'s state.
  */
 @Validated
 public class StateChange {

@@ -6,6 +6,9 @@ import org.dembol.blue.shared.ContractException;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 
+/**
+ * Maps {@link org.dembol.blue.shared.ContractException} into 400 Bad Request Response.
+ */
 @Slf4j
 public class ContractExceptionMapper implements ExceptionMapper<ContractException> {
 

@@ -5,6 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 
+/**
+ * Maps {@link java.lang.Exception} into 503 Internal Server Error Response.
+ */
 @Slf4j
 public class GeneralExceptionMapper implements ExceptionMapper<Exception> {
 

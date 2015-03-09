@@ -1,5 +1,6 @@
 package org.dembol.blue.domain;
 
+import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import lombok.EqualsAndHashCode;
@@ -7,7 +8,6 @@ import lombok.ToString;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
-import java.util.Optional;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,9 +25,9 @@ import static org.dembol.blue.domain.StatePermission.CONTENT_MODIFIABLE;
 import static org.dembol.blue.domain.StatePermission.REASON_REQUIRED;
 
 /**
- * Represents single Request with some {@link StateChangeHistory}.
+ * Represents single Request.
  *
- * Implements Aggregate Root building block from Domain-Driven Design approach. Responsible for checking consistency and invariants.
+ * Implements Aggregate Root building block from Domain-Driven Design approach. It's responsible for checking consistency and invariants.
  */
 @ToString
 @EqualsAndHashCode
@@ -87,7 +87,7 @@ public class Request {
 	}
 
 	public Optional<String> getReason() {
-		return Optional.ofNullable(reason);
+		return Optional.fromNullable(reason);
 	}
 
 	public State getState() {

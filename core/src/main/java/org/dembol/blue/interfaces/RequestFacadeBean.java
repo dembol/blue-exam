@@ -1,5 +1,8 @@
 package org.dembol.blue.interfaces;
 
+import com.google.common.base.Optional;
+import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.dembol.blue.application.RequestService;
 import org.dembol.blue.domain.Request;
@@ -7,16 +10,28 @@ import org.dembol.blue.domain.RequestSpecification;
 import org.dembol.blue.domain.State;
 
 import java.util.List;
-import java.util.Optional;
 import javax.ws.rs.core.Response;
 
+/**
+ * Represents main REST system's facade.
+ */
 @Slf4j
 public class RequestFacadeBean implements RequestFacade {
 
+	@Getter(AccessLevel.PACKAGE)
 	private final RequestService requestService;
+
+	@Getter(AccessLevel.PACKAGE)
+	private final RequestMapper requestMapper;
 
 	public RequestFacadeBean(RequestService requestService) {
 		this.requestService = requestService;
+		this.requestMapper = new RequestMapper();
+	}
+
+	RequestFacadeBean(RequestService requestService, RequestMapper requestMapper) {
+		this.requestService = requestService;
+		this.requestMapper = requestMapper;
 	}
 
 	@Override
@@ -27,7 +42,6 @@ public class RequestFacadeBean implements RequestFacade {
 		}
 
 		Request request = requestOptional.get();
-		RequestMapper requestMapper = new RequestMapper();
 		RequestDTO requestDTO = requestMapper.mapRequestToDTO(request);
 		return Response.ok(requestDTO).build();
 	}
@@ -40,7 +54,6 @@ public class RequestFacadeBean implements RequestFacade {
 		specification.setState(state);
 		List<Request> requests = requestService.findRequestsBySpecification(specification, pageNumber);
 
-		RequestMapper requestMapper = new RequestMapper();
 		return requestMapper.mapRequestsToDTO(requests);
 	}
 
@@ -53,27 +66,27 @@ public class RequestFacadeBean implements RequestFacade {
 	}
 
 	@Override
-	public void setRequestAccept(Integer requestId) {
+	public void setRequestAccepted(Integer requestId) {
 		requestService.changeRequestState(requestId, State.ACCEPTED);
 	}
 
 	@Override
-	public void setRequestVerify(Integer requestId) {
+	public void setRequestVerified(Integer requestId) {
 		requestService.changeRequestState(requestId, State.VERIFIED);
 	}
 
 	@Override
-	public void setRequestPublish(Integer requestId) {
+	public void setRequestPublished(Integer requestId) {
 		requestService.changeRequestState(requestId, State.PUBLISHED);
 	}
 
 	@Override
-	public void setRequestReject(Integer requestId, String reason) {
+	public void setRequestRejected(Integer requestId, String reason) {
 		requestService.changeRequestStateWithReason(requestId, State.REJECTED, reason);
 	}
 
 	@Override
-	public void setRequestDelete(Integer requestId, String reason) {
+	public void setRequestDeleted(Integer requestId, String reason) {
 		requestService.changeRequestStateWithReason(requestId, State.DELETED, reason);
 	}
 

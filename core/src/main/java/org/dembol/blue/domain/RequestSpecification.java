@@ -49,7 +49,7 @@ public class RequestSpecification implements Specification<Request> {
 			predicates.add(predicate);
 		}
 
-		Predicate[] predicatesArray = predicates.stream().toArray(Predicate[]::new);
+		Predicate[] predicatesArray = predicates.toArray(new Predicate[predicates.size()]);
 		return cb.and(predicatesArray);
 	}
 }

@@ -1,7 +1,6 @@
 package org.dembol.blue;
 
 import lombok.extern.slf4j.Slf4j;
-import org.dembol.blue.shared.InternalException;
 import org.hsqldb.Server;
 import org.hsqldb.persist.HsqlProperties;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -39,5 +38,12 @@ public class Launcher {
 		}
 
 		server.start();
+	}
+
+	public static class InternalException extends RuntimeException {
+
+		public InternalException(String message) {
+			super(message);
+		}
 	}
 }

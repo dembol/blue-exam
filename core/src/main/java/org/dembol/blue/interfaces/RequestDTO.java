@@ -1,10 +1,10 @@
 package org.dembol.blue.interfaces;
 
+import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 import lombok.Data;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Represents Data Access Object for the {@link org.dembol.blue.domain.Request}.

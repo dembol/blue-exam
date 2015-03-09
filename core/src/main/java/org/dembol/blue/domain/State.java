@@ -6,7 +6,7 @@ import static org.dembol.blue.domain.StatePermission.CONTENT_MODIFIABLE;
 import static org.dembol.blue.domain.StatePermission.REASON_REQUIRED;
 
 /**
- * Represents {@link org.dembol.blue.domain.Request}'s state according to state diagram.
+ * Represents {@link org.dembol.blue.domain.Request}'s states according to state diagram.
  */
 public enum State {
 

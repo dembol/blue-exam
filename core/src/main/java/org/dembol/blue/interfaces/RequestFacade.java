@@ -13,6 +13,9 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+/**
+ * Represents main REST system's facade interface.
+ */
 @Path("/blue")
 public interface RequestFacade {
 
@@ -34,27 +37,27 @@ public interface RequestFacade {
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/request/{id}/verify")
-	void setRequestVerify(@PathParam("id") Integer requestId);
+	void setRequestVerified(@PathParam("id") Integer requestId);
 
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/request/{id}/accept")
-	void setRequestAccept(@PathParam("id") Integer requestId);
+	void setRequestAccepted(@PathParam("id") Integer requestId);
 
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/request/{id}/publish")
-	void setRequestPublish(@PathParam("id") Integer requestId);
+	void setRequestPublished(@PathParam("id") Integer requestId);
 
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/request/{id}/reject")
-	void setRequestReject(@PathParam("id") Integer requestId, @HeaderParam("reason") String reason);
+	void setRequestRejected(@PathParam("id") Integer requestId, @HeaderParam("reason") String reason);
 
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/request/{id}/delete")
-	void setRequestDelete(@PathParam("id") Integer requestId, @HeaderParam("reason") String reason);
+	void setRequestDeleted(@PathParam("id") Integer requestId, @HeaderParam("reason") String reason);
 
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)

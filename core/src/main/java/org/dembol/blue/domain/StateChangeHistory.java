@@ -17,9 +17,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * Represents history of {@link org.dembol.blue.domain.Request} changes.
-
- * Implements the Event Sourcing pattern based on {@link StateChange}.
+ * Represents history of {@link org.dembol.blue.domain.Request}'s state changes.
  */
 @ToString
 @EqualsAndHashCode

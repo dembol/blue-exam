@@ -6,6 +6,9 @@ import org.dembol.blue.shared.RequestNotFoundException;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 
+/**
+ * Maps {@link org.dembol.blue.shared.RequestNotFoundException} into 404 Not Found Response.
+ */
 @Slf4j
 public class RequestNotFoundExceptionMapper implements ExceptionMapper<RequestNotFoundException> {
 

@@ -1,6 +1,7 @@
 package org.dembol.blue.application;
 
 import com.google.common.base.MoreObjects;
+import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 import org.dembol.blue.domain.Request;
 import org.dembol.blue.domain.RequestRepository;
@@ -11,8 +12,12 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
-import java.util.Optional;
 
+/**
+ * Represents application service providing common interface for all Open-Host Service from interfaces layer.
+ *
+ * Based on Domain-Driven Design Layers.
+ */
 public class RequestServiceBean implements RequestService {
 
 	private static final int DEFAULT_PAGE_SIZE = 10;
@@ -62,7 +67,7 @@ public class RequestServiceBean implements RequestService {
 	@Override
 	public Optional<Request> findRequestById(Integer id) {
 		Request request = requestRepository.findOne(id);
-		return Optional.ofNullable(request);
+		return Optional.fromNullable(request);
 	}
 
 	@Override

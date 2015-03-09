@@ -1,15 +1,24 @@
 package org.dembol.blue.interfaces;
 
+import com.google.common.collect.Lists;
 import org.dembol.blue.domain.Request;
 import org.dembol.blue.domain.State;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
+/**
+ * Represents mapper between {@link org.dembol.blue.domain.Request} and {@link org.dembol.blue.interfaces.RequestDTO}.
+ */
 class RequestMapper {
 
 	List<RequestDTO> mapRequestsToDTO(List<Request> requests) {
-		return requests.stream().map(this::mapRequestToDTO).collect(Collectors.toList());
+		List<RequestDTO> requestsDTO = Lists.newArrayList();
+		for (Request request : requests) {
+			RequestDTO requestDTO = mapRequestToDTO(request);
+			requestsDTO.add(requestDTO);
+		}
+
+		return requestsDTO;
 	}
 
 	RequestDTO mapRequestToDTO(Request request) {
@@ -20,8 +29,12 @@ class RequestMapper {
 		requestDTO.setTitle(request.getTitle());
 		requestDTO.setDescription(request.getDescription());
 
-		List<String> simpleStateHistory = request.getStateHistory().stream().map(State::toString).collect(Collectors.toList());
-		requestDTO.setStateHistory(simpleStateHistory);
+		List<String> simpleHistoryStates = Lists.newArrayList();
+		for (State historyState : request.getStateHistory()) {
+			simpleHistoryStates.add(historyState.toString());
+		}
+
+		requestDTO.setStateHistory(simpleHistoryStates);
 
 		return requestDTO;
 	}
