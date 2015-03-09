@@ -23,17 +23,17 @@ Started SelectChannelConnector@0.0.0.0:8000
 ```
 #### Next you can execute REST methods
   
-* add request (returns new request ID)
+* add request (this method returns new ID)
   ```
   $ curl -X POST "http://127.0.0.1:8000/blue/request" -H"title: some title" -H"description: some description"
   ```
  
-* get request
+* get request by ID
   ```
   $ curl -X GET "http://127.0.0.1:8000/blue/request/ID"
   {"id":13,"title":"some title","description":"some description","reason":null,"state":"CREATED","stateHistory":[]}
   ```
-* change state
+* change request's state
   ```
   $ curl -X PUT "http://127.0.0.1:8000/blue/request/ID/verify"
   $ curl -X PUT "http://127.0.0.1:8000/blue/request/ID/accept"
@@ -42,12 +42,12 @@ Started SelectChannelConnector@0.0.0.0:8000
   $ curl -X PUT "http://127.0.0.1:8000/blue/request/ID/reject" -H"reason: some reason"
   ```
 
-* change request content (only for CREATED and VERIFIED states)
+* change request's content (only for CREATED and VERIFIED states)
   ```
   $ curl -X PUT "http://127.0.0.1:8000/blue/request/ID/content" -H"title: title2" -H"description: description2"
   ```
 
-* find requests
+* find some requests
   ```
   $ curl -X GET "http://127.0.0.1:8000/blue/request
   $ curl -X GET "http://127.0.0.1:8000/blue/request?title=title2&page=0"
