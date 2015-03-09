@@ -73,9 +73,7 @@ public class RequestServiceBean implements RequestService {
 	@Override
 	public List<Request> findRequestsBySpecification(RequestSpecification specification, Integer pageNumber) {
 		pageNumber = MoreObjects.firstNonNull(pageNumber, DEFAULT_PAGE);
-		Integer pageFromIndex = pageNumber * DEFAULT_PAGE_SIZE;
-		Integer pageToIndex = (pageFromIndex + DEFAULT_PAGE_SIZE) - 1;
-		Pageable pageable = new PageRequest(pageFromIndex, pageToIndex);
+		Pageable pageable = new PageRequest(pageNumber, DEFAULT_PAGE_SIZE);
 
 		@SuppressWarnings("unchecked")
 		Iterable<Request> requests = (Iterable<Request>) requestRepository.findAll(specification, pageable);
