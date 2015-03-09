@@ -21,7 +21,7 @@ mvn clean spring-boot:run
 jetty-8.1.14.v20131031
 Started SelectChannelConnector@0.0.0.0:8000
 ```
-#### Next you can execute interface's methods
+#### Next you can execute REST methods
   
 * add request (returns new request ID)
   ```
@@ -49,9 +49,11 @@ Started SelectChannelConnector@0.0.0.0:8000
 
 * find requests
   ```
+  $ curl -X GET "http://127.0.0.1:8000/blue/request
   $ curl -X GET "http://127.0.0.1:8000/blue/request?title=title2&page=0"
   $ curl -X GET "http://127.0.0.1:8000/blue/request?page=1"
   $ curl -X GET "http://127.0.0.1:8000/blue/request?state=CREATED&page=0"
   $ curl -X GET "http://127.0.0.1:8000/blue/request?state=CREATED&title=title123&page=0"
+  $ curl -X GET "http://127.0.0.1:8000/blue/request?state=CREATED&title=title123&description=ala123&page=0"
   ```
 
