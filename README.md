@@ -1,15 +1,15 @@
 # blue-exam
 
-# Providing
+## The project provides
 * domain model based on Domain-Driven Design
 * REST interface
 * JPA repositories for domain persistence
 
-# Requisites
+## Requisites
 * Java 7
 * Maven 3
 
-# Usage
+## Usage
 ```
 mvn clean spring-boot:run
 ```
