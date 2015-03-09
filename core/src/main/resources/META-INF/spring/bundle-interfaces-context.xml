@@ -1,0 +1,29 @@
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                      http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
+
+    <import resource="classpath:META-INF/cxf/cxf.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-extension-http.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-extension-http-jetty.xml" />
+
+    <jaxrs:server id="requestInterface" address="http://0.0.0.0:8000">
+        <jaxrs:serviceBeans>
+            <ref bean="requestFacade"/>
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
+            <bean id="requestNotFoundExceptionMapper" class="org.dembol.blue.interfaces.RequestNotFoundExceptionMapper"/>
+            <bean id="illegalArgumentExceptionMapper" class="org.dembol.blue.interfaces.IllegalArgumentExceptionMapper"/>
+            <bean id="contractExceptionMapper" class="org.dembol.blue.interfaces.ContractExceptionMapper"/>
+            <bean id="constraintExceptionMapper" class="org.dembol.blue.interfaces.ConstraintExceptionMapper"/>
+            <bean id="generalExceptionMapper" class="org.dembol.blue.interfaces.GeneralExceptionMapper"/>
+        </jaxrs:providers>
+    </jaxrs:server>
+
+    <bean id="requestFacade" class="org.dembol.blue.interfaces.RequestFacadeBean">
+        <constructor-arg index="0" ref="requestService" />
+    </bean>
+</beans>
