@@ -12,7 +12,8 @@
 ## Usage
 #### Run spring-boot
 ```
-$ cd blue/core
+$ git clone https://github.com/dembol/blue-exam.git
+$ cd blue-exam/core
 $ mvn clean spring-boot:run
 ```
 
