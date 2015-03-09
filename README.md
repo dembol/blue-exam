@@ -31,7 +31,17 @@ Started SelectChannelConnector@0.0.0.0:8000
  * get request
   ```
   $ curl -X GET "http://127.0.0.1:8000/blue/request/ID"
-  {"id":13,"title":"ttt","description":"de sda","reason":null,"state":"CREATED","stateHistory":[]}
+  {"id":13,"title":"some title","description":"some description","reason":null,"state":"CREATED","stateHistory":[]}
+  ```
+* change state
+  ```
+  curl -X PUT "http://127.0.0.1:8000/blue/request/ID/verify"
+  curl -X PUT "http://127.0.0.1:8000/blue/request/ID/accept"
+  curl -X PUT "http://127.0.0.1:8000/blue/request/ID/publish"
+  curl -X PUT "http://127.0.0.1:8000/blue/request/ID/delete" -H"reason: some reason"
+  curl -X PUT "http://127.0.0.1:8000/blue/request/ID/reject" -H"reason: some reason"
   ```
 
-
+* change request content (only for CREATED and VERIFIED states)
+  ```
+  ```
