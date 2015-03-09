@@ -3,7 +3,7 @@
 ## The project provides
 * REST interface
 * Domain model based on Domain-Driven Design 
-* JPA repositories for domain persistence
+* JPA repositories persisting aggregate roots
 
 ## Requisites
 * Java 7
